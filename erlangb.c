@@ -15,7 +15,12 @@ int help_message();
 
 
 int main(int argc, char **argv) {
+    if (argc == 1) {
+            help_message();
+            return 0;
+        }
     for (int i = 1; i < argc; i++) {
+
         if (strcmp(argv[i], "-h") == 0 && argc == 2) {
             help_message();
             return 0;
@@ -109,9 +114,9 @@ int main(int argc, char **argv) {
             float m = atof(argv[i+3]);
             float a = find_a_for_m_e(m, E);
             int v = required_number_of_channels(E, a);
-            printf("Load: %f\nRequired number of channels:%d\n", a, v);
+            printf("%f\n%d\n", a,v);
             
-        }
+        } 
     }
 }                
 
@@ -219,15 +224,14 @@ int help_message() {
     printf("erlangb is Erlang B calculator, it accepts the following arguments and their values as input:\n");
     printf("-h show this message\n");
     printf("-a Load > 0\n");
-    printf("-v Number of channels, integer > 0\n");
-    printf("-m Average number of busy channels > 0\n");
+    printf("-v Number of channels, integer\n");
+    printf("-m Average number of busy channels\n");
     printf("-E Percentage of lost tickets 0 < E < 1\n");
     printf("Here is all supported cases of use:\n");
     printf("-a <number> -v <number> -> E, m\n");
     printf("-a <number> -E <number> -> v, m\n");
     printf("-a <number> -m <number> -> v, E\n");
     printf("-v <number> -m <number> -> a, E\n");
-    printf("-v <number> -E <number> -> a, m\n");
     printf("-E <number> -m <number> -> a, v\n");
     printf("Example:\n");
     printf("Input:\n    -a 10 -v 5\n");
