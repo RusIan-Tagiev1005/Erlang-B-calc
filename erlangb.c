@@ -231,7 +231,7 @@ int help_message() {
     printf("-a <number> -v <number> -> E, m\n");
     printf("-a <number> -E <number> -> v, m\n");
     printf("-a <number> -m <number> -> v, E\n");
-    printf("-v <number> -m <number> -> a, E\n");
+    printf("-v <number> -E <number> -> a, m\n");
     printf("-E <number> -m <number> -> a, v\n");
     printf("Example:\n");
     printf("Input:\n    -a 10 -v 5\n");
